@@ -1,8 +1,23 @@
 #Homework Assignment 1
 ##
 ###Problem 1
+![](https://github.com/JoshuaGhost/lsdm16/blob/master/a2p1fml.png?raw=true)
+##
+###Problem 2
 ####Question 1
+> 
+	{
+	'Even hash them ', 
+	'hash them four bytes each, ',
+	'four bytes each, space needed ', 
+	'space needed store ', 
+	'store still roughly four times ', 
+	'still roughly four times space taken ', 
+	'space taken document ', 
+	'document '
+	}
 
+####Question 2
 Map phase: Saperate all Documents into several exclusive sets. Each set contains diffrent but complete sentences. Assign every set into a Map component, inside which are turples (word, count\_of\_sentences) calculated.
 
 Shuffle phase: Group the turples with key of same word together and devide it into reducer according to words.
@@ -11,8 +26,23 @@ Reduce phase: For each reducer sum up number of sentences, in which each reducer
 
 at last combine results from all of reducers, output
 
-####Question 2
+####Question 3
 
+Map phase: 
+	
+	Map(index_of_band, index_of_doc, shingles_of_every_doc) -> 
+		<index_of_band, index_of_doc, hash_per_band>
+		
+		Inside ever Mapper hash table for every documents is caculated within
+		same band. Meanwhile indexes of documents are only be preserved.
+  
+Reduce phase:
+	
+	Reduce(index_of_doc, hash_table_per_band) ->
+		  <index_of_doc, hash_table_per_doc>
+
+		For every Reducer hash tables per band are grouped and ordered 
+		according to document id
 Map phase: Two mapper receive two lists of turple, in each of mapper is the list sorted according to the lexical order of words.
 
 Shuffle phase: At first set a volume *n* of a reducer. Each reducer is assigned at most n (pairs of, if word duplicated in two lists) turple.
