@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{amsfonts,amssymb}
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{\@arabic\c@subsection}
+\makeatother
+\title{Assignment 3 for Large Scale Data Mining}
+\author{Name: Zijian Zhang\\
+        Matrikelnr.: 3184680}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Problem 1}
+\subsection{}
+The key should be \emph{university}. During the sampling we only maintain tuples that fit the \emph{courseID} demanded and hash each sample with same \emph{university} into same bucket.
+\subsection{}
+The key should be the combination of \emph{university} and \emph{studentID}.
+\subsection{}
+The key should be the combination of \emph{university} and \emph{courseID}.
+\section{Problem 2}
+\renewcommand{\thesubsection}{(\alph{subsection})}
+\subsection{}$k=5 \longrightarrow$ first two buckets from right are counted precisely, the third are only a half token into account.thus $1+1+\frac{1}{2}=3$. Precise value is also $3$, two values are the same.
+\subsection{}$k=15 \longrightarrow$ the total value of the first four buckets is $1+1+2+4=8$, while the half of the fifth bucket is $\frac{4}{2}=2$, thus in total $8+2=10$. Correct value is however $9$.
+\section{Problem 3}
+If there are three more 1's enter the window:
+\renewcommand{\thesubsection}{step \arabic{subsection}:}
+\subsection{}The second and the third 1 bucket are combined together as a 2-size-of bucket.
+\subsection{}Now we have three bucket of size 2, the second and the third from right of size-2-buckets are combined together as a size-4-bucket.
+\subsection{}Two of size-4-buckets from left are combined together, now we have from right one of size 1, one of size 2, one of size 4 and at least one of size 8.
+\section{Problem 4}
+\renewcommand{\thesubsection}{}
+\subsection{}Space requirement: $\mathcal{O}(\frac{N}{w}log(w))$, where there are in total $\frac{N}{w}$ buckets and each of which contains a count = $2^{w}$.
+\subsection{}Maximum error should be $\frac{w}{2}$. Because when the length of $k=tw\pm1$ where $t\in\mathbb{N}$ the error could be $\frac{w}{2}$ if for the last of the bucket only the half of the count was caculated.
+\end{document}

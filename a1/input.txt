@@ -1,0 +1,1 @@
+Even if we hash them to four bytes each, the space needed to store a set is still roughly four times the space taken by the document
